@@ -6,6 +6,12 @@ module.exports = function(config) {
     // Frameworks to use
     frameworks: ['jasmine'],
 
+    basePath: 'app/',
+
+    files: [
+        '*.spec.js'
+    ], 
+
     // Test results reporter to use
     // Possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
     // reporters: ['progress'],
