@@ -1,52 +1,37 @@
 
-describe('String Calculator', function() {
-
-    var app;
-    
-    beforeEach(function() {
-        app = new App();
+describe('Solution', function() {
+    it('should support 4', function() {
+        expect(isPerfectSquare(4)).toBe(true);
     });
     
-    it('has an add method', function() {
-        expect(app.add).toBeDefined();
+    it('should support 9', function() {
+        expect(isPerfectSquare(9)).toBe(true);
     });
     
-    it('should return 0 if passed an empty string ', function(){
-        expect(app.add('')).toBe(0);
+    it('should support 100', function() {
+        expect(isPerfectSquare(100)).toBe(true);
+    });
+    
+    it('should support 7', function() {
+        expect(isPerfectSquare(7)).toBe(false);
     });
 
-    it('should return 1 number', function(){
-        expect(app.add('3')).toBe(3);
+    it('should support 2147483647', function() {
+        expect(isPerfectSquare(2147483647)).toBe(false);
     });
 
-    it('should add 2 numbers together', function(){
-        expect(app.add('1,2')).toBe(3);
-    });
 
-    it('should treat empty strings as 0', function(){
-        expect(app.add('2,')).toBe(2);
-    });
+    
 
-    it('should add together more than two numbers', function(){
-        expect(app.add('1,2,3,4')).toBe(10);
-    });
+    for (var i = 0; i < 10; i++) {
 
-    it('should handle new lines as well as commas', function(){
-        expect(app.add('1\n2,3')).toBe(6);
-    });
+        var x = Math.floor(Math.random() * 2345);
 
-    it('should support the use of custom delimiters', function(){
-        expect(app.add('//%\n1%2%3')).toBe(6);
-    });
+        it('should run ' + x, function() {
+            expect(isPerfectSquare(x)).toBe(Math.sqrt(x) % 1 === 0);
+        })
+    }
 
-    it('should throw exception on negative values', function(){
 
-        try{
-            app.add(null, '1,2,-3');
-        }catch(e){
-            expect(e).toBeDefined();
-        }
-
-    })
 
 });
